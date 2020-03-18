@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+	var resultat="";
+	var pile=0;
+	var face=0;
+	for(var i=0; i<10; i++){
+		var x=Math.random();
+		var arrondi=Math.round(x);
+		resultat +=arrondi ;
+			if (arrondi==1) {
+			pile++;
+		}
+		if(arrondi==0){
+			face++;
+		}
+
+	}
+	if(pile>face){
+		alert("vous avez gagné " +resultat );
+	}
+	else if(pile<face){
+		alert("vous avez perdu " +  resultat);
+	}
+	else{
+		alert("egalité " +  resultat);
+	}
+	
+
+
+</script>
+</body>
+</html>

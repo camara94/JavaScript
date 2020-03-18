@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var N;
+			      do{
+				N=parseInt(prompt("Donner un entier impaire compris entre 0 et 20: "));
+			}while (N%2==0 || N>20)
+			for(var i=0; i<=(N/2); i++)
+			{
+				var etoile="";
+				var espaceVide="";
+				for(var j=1; j<=(N-i); j++){
+					espaceVide=espaceVide + "&nbsp;&nbsp;";
+				}
+				for(var k=1; k<=(2*i+1); k++){
+					etoile+="*"
+				}
+				document.write(espaceVide + etoile);
+				document.write("<br>");
+			}
+
+
+			for(var i=(N-1)/2; i>=0; i--)
+			{
+				var etoile="";
+				var espaceVide="";
+				for(var j=1; j<=(N-i); j++){
+					espaceVide=espaceVide + "&nbsp;&nbsp;";
+				}
+				for(var k=1; k<=(2*i+1); k++){
+					etoile+="*"
+				}
+				document.write(espaceVide + etoile);
+				document.write("<br>");
+			}
+
+			
+		</script>
+	</body>
+</html>
