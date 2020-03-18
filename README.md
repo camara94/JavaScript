@@ -3,9 +3,13 @@
 
 ## Résumé de TP1
  l'objectif de cet TP est :
-* Apprendre à écrire du code JavaScript dans un fichier html. 
-* Apprendre les outils nécessaires pour la saisie et l’affichage des données. 
-* Manipuler les structures de données conditionnelles et itératives. 
+* Apprendre à écrire du code JavaScript dans un **fichier html**. 
+* Apprendre les outils nécessaires pour la saisie et **l’affichage des données**. 
+* Manipuler les structures de données **conditionnelles et itératives**. 
+
+## Résumé de TP2
+ l'objectif de cet TP est d'assimiler et comprendre:
+* Manipuler les **fonctions** à travers les **évènements**. 
 
 ## Résumé de TP3
  l'objectif de cet TP est d'assimiler et comprendre:
