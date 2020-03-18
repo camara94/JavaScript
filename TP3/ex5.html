@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<title>Exercice 5 TP3</title>
+		<style type="text/css">
+			form {
+				width: 500px;
+				padding: 8px;
+				margin: 20px auto;
+			}
+
+			#message {
+				color: green;
+				font-style: italic;
+				font-size: 28px;
+			}
+
+			#error {
+				color: red;
+				font-style: italic;
+				font-size: 28px;
+			}
+		</style>
+	</head>
+	<body>
+		<form name="form1">
+			<fieldset>
+				<label for="mail">Entrez une adresse mail</label>
+				&nbsp;&nbsp;<input type="text" name="mail" id="mail">
+				&nbsp;&nbsp;<input type="button" value="Vérifier le mail" onclick="verifierMail()">
+			</fieldset>
+			<p>
+				<span id="message"></span>
+				<span id="error"></span>
+			</p>
+		</form>
+		<script type="text/javascript">
+			function verifierMail() {
+				var mail = document.form1.mail.value;
+				var message = document.getElementById('message');
+				var error = document.getElementById('error');
+
+
+				if(mail.indexOf('@')>=1 && mail.indexOf('.')>=1) {
+					error.innerHTML = "";
+					 message.innerHTML = "<strong> " + mail.toUpperCase() +  "</strong> est un mail valide !!!";
+					 //alert(mail.toUpperCase() +  " est un mail valide !!!");
+
+				} else if(error.innerHTML.length<=0 && message.innerHTML<=0) {
+					message.innerHTML="";
+					error.innerHTML = "Le champ est vide ?";
+					// alert("Le champ est vide ?");
+				} else {
+					message.innerHTML="";
+					error.innerHTML = "<strong>" + mail +  "</strong> n'est valide ?";
+					//alert(mail.toUpperCase() +  " n'est pas valide !!!");
+				}
+
+				console.log(mail.indexOf('@'))
+			}
+
+		</script>
+	</body>
+</html>

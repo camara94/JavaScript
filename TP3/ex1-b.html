@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Exercice 1 TP3</title>
+		<style type="text/css">
+			form {
+				width: 600px;
+				margin: 20px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<form name="form1">
+			<fieldset>
+				<label for="heure">DATE ET HEURE SYSTEME: </label>
+				<input type="text" name="heure" id="heure" disabled>
+			</fieldset>
+		</form>
+		<form name="form2">
+			<fieldset>
+				<input type="text" name="heure" />
+				<input type="button" value="demarrer" onclick="demarrer()" />
+				<input type="button" value="arrêter" onclick="arreter()" />
+			</fieldset>
+		</form>
+		<script type="text/javascript">
+
+			function chrono() {
+				var dateHeure = new Date();
+
+				var jour = dateHeure.getDate();
+				var mois = dateHeure.getMonth() + 1;
+				var annee = dateHeure.getFullYear();
+				var heure = dateHeure.getHours();
+				var minute = dateHeure.getMinutes();
+				var seconde = dateHeure.getSeconds();
+
+				jour = (jour<10)? "0"+jour: jour;
+				mois = (mois<10)? "0"+mois: mois;
+				heure = (heure<10)? "0"+heure: heure;
+				minute = (minute<10)? "0"+minute: minute;
+				seconde = (seconde<10)? "0"+seconde: seconde;
+
+				document.form1.heure.value= jour + "/" + mois + "/" + annee + "  " + heure + ":" + minute + ":" + seconde;
+
+			}
+
+			setInterval("chrono()", 1000);
+
+
+			function chrono2() {
+				var dateHeure = new Date();
+
+				var jour = dateHeure.getDate();
+				var mois = dateHeure.getMonth() + 1;
+				var annee = dateHeure.getFullYear();
+				var heure = dateHeure.getHours();
+				var minute = dateHeure.getMinutes();
+				var seconde = dateHeure.getSeconds();
+
+				jour = (jour<10)? "0"+jour: jour;
+				mois = (mois<10)? "0"+mois: mois;
+				heure = (heure<10)? "0"+heure: heure;
+				minute = (minute<10)? "0"+minute: minute;
+				seconde = (seconde<10)? "0"+seconde: seconde;
+
+				document.form2.heure.value= jour + "/" + mois + "/" + annee + "  " + heure + ":" + minute + ":" + seconde;
+
+			}
+
+			var id=0;
+			var tab = new Array();
+
+			function demarrer() {
+				
+				id = setInterval("chrono2()", 1000);
+				tab.push(id);
+				console.log("demarrage: " + tab);
+				
+			}
+
+
+			function arreter() {
+				for(i=0; i<tab.length; i++){
+					clearTimeout(tab[i]);
+					//console.log("---->: " + i);
+				}
+				//console.log("arrêt: " + tab);
+			}
+			
+			var f;
+			alert(f);
+
+
+		</script>
+	</body>
+</html>

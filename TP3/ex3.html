@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Exercice 3 TP3</title>
+		<style type="text/css">
+			form {
+				width: 350px;
+				height: 250px;
+				margin: 30px auto;
+				border: 1px solid;
+				padding-top: 3px;
+			}
+
+			img{
+				width: 350px;
+			}
+
+			#btn1{
+				margin-right: 185px;
+				margin-left: 5px;
+			}
+
+			input[type="button"]{
+				padding: 4px;
+				margin-bottom: 4px;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<form name="form1">
+			<input type="button" value="Précedente" id="btn1" onclick="precedente()">
+			<input type="button" value="Suivante" onclick="suivante()"><br>
+			<img src="./images/image1.jpg" name="image">
+		</form>
+		<script type="text/javascript">
+
+			var tableauDImages = [
+									"images/image1.jpg", 
+									"images/image2.jpg",
+									"images/image3.jpg",
+									"images/image4.jpg",
+									"images/image5.jpg"
+								];
+			var image = document.form1.image;
+			var i=0;
+
+			function suivante() {
+				
+				 if(i < tableauDImages.length-1) {
+				 	i = i+1;
+				 	image.src = tableauDImages[i];
+				 	console.log(i);
+				 } else if(i== tableauDImages.length-1) {
+				 	i=-1;
+				 }
+			}
+
+			function precedente() {
+				
+				 if(i>0) 
+				 	i--;
+				 else if(i==0)
+				 	i=tableauDImages.length-1;
+
+				 	image.src = tableauDImages[i];
+				 	console.log(i);
+				 
+			}
+		
+		</script>
+	</body>
+</html>

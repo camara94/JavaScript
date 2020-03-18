@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Exercice 6 TP3</title>
+		<style type="text/css">
+			form {
+				width: 700px;
+				margin: 20px auto;
+			}
+
+			#message {
+				margin-top: 20px;
+				color: green;
+				font-style: italic;
+				font-size: 28px;
+			}
+
+		</style>
+	</head>
+	<body>
+		<!--
+			Le but de cet exercice, est créer un script qui permet 
+			de determiner le jour de naissance par exemple, si 
+			l'utilisateur donne Le 18/03/2020 vous êtes né à un Mercredi
+		-->
+
+		<form name="form1">
+			<fieldset>
+				<label for="jour">Donnez votre date de naissance, Ex: (18/03/2020): </label>
+				<input type="text" name="jour" id="jour">
+				<input type="button" value="Afficher Jour" onclick="AfficherJourDeNaissance()">
+			</fieldset>
+			<span id="message"></span>
+		</form>
+		<script type="text/javascript">
+			function AfficherJourDeNaissance() {
+				var dateDeNaissance = document.form1.jour.value;
+				var j = dateDeNaissance.substring(0, 2);
+				var m = dateDeNaissance.substring(j.length+1, j.length+5);
+				var annee = dateDeNaissance.substring(m.length+2, j.length+9);
+				//convertir en entier
+				j = parseInt(j);
+				m = parseInt(m);
+				annee = parseInt(annee);
+
+
+				var date = new Date();
+				date.setDate(j);
+				date.setMonth(m-1);
+				date.setFullYear(annee);
+
+				var jourDeLaSemaine = ["Dimanche", "Lundi", "Mardi", "Mercredi","Jeudi", "Vendredi", "Samedi"];
+
+				document.getElementById('message').innerHTML = "Vous êtes né(e)s à un " + jourDeLaSemaine[date.getDay()];
+				//console.log(annee);
+			}
+		</script>
+	</body>
+</html>

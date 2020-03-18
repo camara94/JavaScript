@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Exercice 2 TP3</title>
+		<style type="text/css">
+			form {
+				width: 600px;
+				margin: 20px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<form name="form1">
+			<fieldset>
+				<label for="systeme">DATE SYSTEME: </label>
+				<input type="text" name="systeme" id="systeme" disabled>
+				<input type="button" value="==>" onclick="transformeDateSysteme()">
+				<input type="text" name="traduit" disabled>
+			</fieldset>
+		</form>
+		<script type="text/javascript">
+			var dateSysteme = new Date();
+			var jour = dateSysteme.getDate();
+			var mois = dateSysteme.getMonth() + 1;
+			var annee = dateSysteme.getFullYear();
+
+			jour = ( jour<10 )? "0" + jour : jour;
+			mois = ( mois<10 )? "0" + mois : mois;
+			
+			document.form1.systeme.value = jour + "/" + mois + "/" + annee;
+            
+            
+            function transformeDateSysteme(){
+            	/*var jourDeLaSemaine = new Array("Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi","Vendredi","Samedi");*/
+
+
+            var jourDeLaSemaines = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi","Vendredi","Samedi"];
+
+            var moisDeLAnnees = new Array();
+             	moisDeLAnnees[0] = "Janvier";
+             	moisDeLAnnees.push("Fevrier");
+             	moisDeLAnnees[2] = "Mars";
+             	moisDeLAnnees.push("Avril");
+             	moisDeLAnnees.push("Mai");
+             	moisDeLAnnees.push("Juin");
+             	moisDeLAnnees.push("Juillet");
+             	moisDeLAnnees.push("Août");
+             	moisDeLAnnees.push("Septembre");
+             	moisDeLAnnees.push("Octobre");
+             	moisDeLAnnees.push("Novembre");
+             	moisDeLAnnees.push("Decembre");
+
+             	var indexJour = dateSysteme.getDay();
+             	var indexMois = dateSysteme.getMonth();
+
+             	//On convertit le jour et le mois en majuscule
+             	var jours = jourDeLaSemaines[indexJour].toUpperCase();
+             	var mois = moisDeLAnnees[indexMois].toUpperCase();
+             	var annee = dateSysteme.getFullYear();
+             	var jourDuMois = dateSysteme.getDate();
+
+                document.form1.traduit.value = jours + " " + jourDuMois + " " + mois + " " + annee; 
+
+            }
+
+            
+
+
+
+
+
+
+
+		</script>
+	</body>
+</html>

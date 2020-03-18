@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Exercice 4 TP3</title>
+		<style type="text/css">
+			form {
+				width: 600px;
+				height: 600px;
+				margin: 40px auto;
+			}
+			td{
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<form name="form1">
+			<table>
+				<tr>
+					<td><label>CHOIX DE L'ARTICLE: </label></td>
+					<td><select name="article">
+					</select>
+
+					</td>
+				</tr>
+				<tr>
+					<td><label>CHOIX DE LA TAILLE: </label></td>
+					<td><select name="taille" ></select></td>
+				</tr>
+				<tr>
+					<td><input type="button" value="donner prix" onclick="calculerPrix()"></td>
+					<td><input type="text" name="resultat" disabled></td>
+				</tr>
+
+			</table>
+		</form>
+ 
+		<script type="text/javascript">
+			var taille = ['T-small', 'T-medium', 'T-large'];
+			var article = ['Chemise', 'Polos', 'T-shirt'];
+			var prix = [[1200, 800, 500], [1250, 850, 520], [1300, 900, 540]];
+			var optionArticles ="";
+			var optionTailles = "";
+			article.forEach((valeur, index)=>{
+				optionArticles += '<option  value="' +index+'" >' + valeur + '</option>';
+				//console.log("valeur = " + valeur + " index = " + index);
+			});
+
+			taille.forEach((valeur, index)=>{
+				optionTailles += '<option value="' +index+'">' + valeur + '</option>';
+				//console.log("valeur = " + valeur + " index = " + index);
+			})
+
+			document.form1.article.innerHTML=optionArticles;
+			document.form1.taille.innerHTML=optionTailles;
+
+			function calculerPrix() {
+				var indexArticle = document.form1.article.selectedIndex;
+				var indexTaille = document.form1.taille.selectedIndex;
+				document.form1.resultat.value = prix[indexTaille][indexArticle];
+
+			}
+		</script>
+	</body>
+</html>

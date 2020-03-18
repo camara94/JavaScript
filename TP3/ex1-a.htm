@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Exercice 1 TP3</title>
+		<style type="text/css">
+			form {
+				width: 600px;
+				margin: 20px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<form name="form1">
+			<fieldset>
+				<label for="heure">DATE ET HEURE SYSTEME: </label>
+				<input type="text" name="heure" id="heure" disabled>
+			</fieldset>
+		</form>
+		<script type="text/javascript">
+			var dateHeure = new Date();
+
+			var jour = dateHeure.getDate();
+			var mois = dateHeure.getMonth() + 1;
+			var annee = dateHeure.getFullYear();
+			var heure = dateHeure.getHours();
+			var minute = dateHeure.getMinutes();
+			var seconde = dateHeure.getSeconds();
+
+			//Premièrement on utilise les condition ternaires
+			/*jour = (jour<10)? "0"+jour: jour;
+			mois = (mois<10)? "0"+mois: mois;
+			heure = (heure<10)? "0"+heure: heure;
+			minute = (minute<10)? "0"+minute: minute;
+			seconde = (seconde<10)? "0"+seconde: seconde;*/
+
+			//Deuxièment on utilise les condition if  else
+			if(heure<10)
+				heure = "0" +  heure;
+
+			if(jour<10)
+				jour = "0" + jour;
+			if(mois<10)
+				mois = "0" + mois;
+
+			if(minute<10)
+				minute = "0" + minute;
+
+			if(seconde<10)
+				seconde = "0" + seconde;
+
+			//alert(seconde);
+			document.form1.heure.value= jour + "/" + mois + "/" + annee + "  " + heure + ":" + minute + ":" + seconde;
+			//alert(dateHeure);
+		</script>
+	</body>
+</html>
