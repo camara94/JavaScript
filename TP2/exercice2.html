@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<style type="text/css">
+		
+		</style>
+	</head>
+	<body>
+		<form name="form" >
+			<p>
+				<label for="rouge">Rouge </label>
+				<input type="text" id="rouge" name="rouge" placeholder="La valeur entre 0 à 255">
+			</p>
+			<p>
+				<label for="vert">Vert </label>
+				<input type="text" id="vert" name="vert" placeholder="La valeur entre 0 à 255">
+			</p>
+			<p>
+				<label for="bleu">Bleu</label>
+				<input type="text" id="bleu" name="bleu" placeholder="La valeur entre 0 à 255">
+			</p>
+			<input type="button" value="changer la couleur" onclick="changerCouleur()">
+		</form>
+		<script type="text/javascript">
+			function changerCouleur() {
+				var r = parseInt(document.form.rouge.value);
+				var v = parseInt(document.form.vert.value);
+				var b = parseInt(document.form.bleu.value);
+
+				if(r<0 || r>255 || v<0 || v>255 || b <0 || b>255)
+				{
+					
+					document.form.rouge.value="";
+					document.form.vert.value="";
+					document.form.bleu.value="";
+				} else {
+					document.body.style.backgroundColor="rgb(" + r + "," + v + "," + b+")";
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Exercice 5 TP2</title>
+		<style type="text/css">
+			form{
+				width: 700px;
+			}  
+		</style>
+	</head>
+	<body>
+		<form name="menu">
+			<fieldset>
+				<h2>Composez votre menu</h2>
+				<hr>
+				<p>Choisissez une entrée, un plat principal et un desert, puis cliquez sur "Calculer"</p>
+				<table>
+					<tr>
+						<th>Entrée</th>
+						<th>Plat principal</th>
+						<th>Dessert</th>
+					</tr>
+					<tr>
+						<td>
+							<input type="radio" name="entree" id="entree1" onclick="verifierEntree()" />
+							<label for="entree1"> Salade Vert(<span class="entree">2.500</span>)</label><br>
+
+							<input  type="radio" name="entree" id="entree2" onclick="verifierEntree()"/>
+							<label for="entree2"> Salade Méchouia(<span class="entree">3.500</span>)</label><br>
+
+							<input  type="radio" name="entree" id="entree3" onclick="verifierEntree()"/>
+							<label  for="entree3"> Salade au Vapeur(<span class="entree">3.500</span>)</label><br>
+
+							<input type="radio" name="entree" id="entree4" onclick="verifierEntree()">
+							<label  for="entree4"> Brik(<span class="entree">1.200</span>)</label>
+						</td>
+
+						<td>
+							<input type="radio" name="plat" id="plat1" onclick="verifierEntree()">
+							<label for="plat1"> Plat tunien(<span class="plat">2.500</span>)</label><br>
+
+							<input type="radio" name="plat" id="plat2" onclick="verifierEntree()">
+							<label for="plat2"> lasagne(<span class="plat">6.500</span>)</label><br>
+
+							<input type="radio" name="plat" id="plat3" onclick="verifierEntree()">
+							<label for="plat3"> Spaghetti à la viande(<span class="plat">5.000</span>)</label><br>
+
+							<input type="radio" name="plat" id="plat4" onclick="verifierEntree()">
+							<label for="plat4"> Couscous(<span class="plat">5.500</span>)</label><br>
+						</td>
+
+						<td>
+							<input type="radio" name="dessert" id="dessert1" onclick="verifierEntree()">
+							<label for="dessert1"> Fruit de la saison(<span class="dessert">1.500</span>)</label><br>
+
+							<input type="radio" name="dessert" id="dessert2" onclick="verifierEntree()">
+							<label for="dessert2"> Crème(<span class="dessert">2.500</span>)</label><br>
+
+							<input type="radio" name="dessert" id="dessert3" onclick="verifierEntree()">
+							<label for="dessert3"> Glace(<span class="dessert">3.000</span>)</label><br>
+
+							<input type="radio" name="dessert" id="dessert4" onclick="verifierEntree()">
+							<label for="dessert4"> Salade de fruits(<span class="dessert">2.500</span>)</label><br>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3" align="center"><input type="button" id="btn" value="Calculer" onclick="calculer()"></td>
+					</tr>
+					<tr>
+						<td colspan="3" align="center">
+							<textarea name="total" cols="70" rows="8" id="txt">
+								
+							</textarea>
+						</td>
+					</tr>
+				</table>
+				
+			</fieldset>
+		</form>
+
+		<script type="text/javascript">
+			var textarea = document.menu.total;
+
+			var prixEntree=0;
+			var prixPlat=0;
+			var prixDessert=0;
+			 document.menu.entree.style.backgroundColor="pink";
+
+			
+
+			 textarea.value =" Prix à payer:\n\n" + " \n Entrée:      :"  + "\n Plat:        :" + "\n Dessert      :" + "\n Total        :";
+			function verifierEntree(){
+			 
+
+			 var entrees = document.menu.entree;
+			 var valeur1 = document.getElementsByClassName('entree');
+
+			 var plats = document.menu.plat;
+			 var valeur2 = document.getElementsByClassName('plat');
+
+			 var desserts = document.menu.dessert;
+			 var valeur3 = document.getElementsByClassName('dessert');
+
+			 
+			 	
+
+			 	for (var i = 0; entrees.length; i++) {
+
+			 		if(entrees[i].checked == true)
+			 		{
+			 			prixEntree = parseFloat(valeur1[i].textContent)*1000;
+
+			 		}
+
+			 		if(plats[i].checked == true)
+			 		{
+			 			prixPlat = parseFloat(valeur2[i].textContent)*1000;
+
+			 		}
+
+			 		if(desserts[i].checked == true)
+			 		{
+			 			prixDessert = parseFloat(valeur3[i].textContent)*1000;
+
+			 		}
+
+			 		 textarea.value =" Prix à payer:\n\n" + " \n Entrée:      :" + prixEntree + "\n Plat:        :" + prixPlat + "\n Dessert      :" + prixDessert + "\n Total        :";
+			 	}
+
+			 	
+			 	
+
+			 }
+
+
+			 function calculer() {
+			 	//alert(textarea.value.length);
+			 	if(textarea.value.length==93 || textarea.value.length==87 || textarea.value.length==90){
+			 	    textarea.value += prixEntree + prixPlat + prixDessert;
+			 	}   
+			 	else {
+			 		textarea.value = textarea.value.substr(0, textarea.value.length);
+			 	}
+			 }
+
+
+
+		</script>
+	</body>
+</html>

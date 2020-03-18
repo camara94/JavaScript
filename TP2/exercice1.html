@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mouloukou Souleymane</title>
+	</head>
+	<body>
+		<form name="form">
+			<fieldset>
+				<span>Durée en secondes: </span>
+				<input type="text" id="second" >
+				<input type="button" id="btn" value="convertir" name="">
+				<input type="text" id="heure" disabled>
+			</fieldset>
+		</form>
+		<script type="text/javascript">
+
+			document.getElementById('btn').addEventListener('click',  function (e) {
+				var n= document.getElementById('second').value
+				  n= parseInt(n);
+				  var h= parseInt(n/3600);
+				var min = parseInt((n%3600)/60);
+				var s= (n%3600)%60;
+				var p=document.getElementById('heure').value = h + ":"+ min + ":"+s;
+				
+			})
+			
+		</script>
+	</body>
+</html>

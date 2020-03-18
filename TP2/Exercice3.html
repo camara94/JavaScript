@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercice 3 TP2</title>
+	</head>
+	<body>
+		<form name="form">
+			<input type="text" disabled  name="va">
+			<input type="button" onclick="calculer()" value="calculer" name="btn">
+			<input type="text"  name="txt">
+		</form>
+		<script type="text/javascript">
+
+			var result="";
+			var pile=0; face=0;
+			
+			
+			for(var i=0; i < 10; i++)
+			{
+				
+				var x = Math.random();
+				var arroundi = Math.round(x);
+
+				result = result + arroundi;
+
+				if (arroundi==1) 
+				{
+					pile++;
+				}
+				else
+				{
+					face++;
+				}
+
+			}
+
+
+			function calculer() {
+				var message="";
+				if(pile>face)
+				{
+					message = "C'est gagné ";
+				} 
+				else if (pile<face)
+				{
+					message = "C'est perdu ";
+				}
+				else
+				{
+					message = "Egalité ";
+				}
+
+				document.form.txt.value = message;
+
+			}
+			
+                document.form.va.value = result;
+			
+		</script>
+	</body>
+</html>

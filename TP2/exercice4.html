@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercice 4 TP2</title>
+		<style type="text/css">
+		td{
+		   padding-left: 10px;
+		   padding-top: 8px;
+		}
+		</style>
+	</head>
+	<body>
+		<form name="calculatrice">
+			<h2>CALCULATRICE STANDARD</h2>
+			<table cellspacing="0">
+				<tr>
+					<td colspan="6"><input type="text"  name="ecran" disabled></td>
+					<td><input type="button" name="c" onclick="vider()" value="C"></td>
+				</tr>
+				<tr>
+					<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td><input type="button" name="b1" onclick="touche(1)" value="1"></td>
+					<td><input type="button" name="b2" onclick="touche(2)" value="2"></td>
+					<td><input type="button" name="b3" onclick="touche(3)" value="3"></td>
+					<td></td>
+				</tr>
+
+				<tr>
+					<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td><input type="button" name="b4" onclick="touche(4)" value="4"></td>
+					<td><input type="button" name="b5" onclick="touche(5)" value="5"></td>
+					<td><input type="button" name="b6" onclick="touche(6)" value="6"></td>
+					<td></td>
+				</tr>
+
+				<tr>
+					<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td><input type="button" name="b7" onclick="touche(7)" value="7"></td>
+					<td><input type="button" name="b8" onclick="touche(8)" value="8"></td>
+					<td><input type="button" name="b9" onclick="touche(9)" value="9"></td>
+					<td></td>
+				</tr>
+
+				<tr>
+					<td colspan="6" align="center" ><input type="button" name="b0" onclick="touche(0)" value="0"></td>
+				</tr>
+
+				<tr>
+					<td colspan="2"></td>
+					<td><input type="button" name="bdiv" onclick="touche('/')"  value="/"></td>
+					<td><input type="button" name="bmult"  onclick="touche('*')" value="*"></td>
+					<td><input type="button" name="badd"  onclick="touche('+')" value="+"></td>
+					<td><input type="button" name="bsous" onclick="touche('-')" value="-"></td>
+				</tr>
+
+				<tr>
+					<td colspan="6" align="center" ><input type="button" onclick="egale()" name="begal" value="="></td>
+				</tr>
+			</table>
+		</form>
+
+		<script type="text/javascript">
+			var ecran = document.calculatrice.ecran;
+			function touche(x) {
+				if(x!=0 || ecran.value != 0)
+					ecran.value += x;
+			 	else
+			 		ecran.value = x;
+			}
+
+			function vider() {
+				ecran.value = "";
+			}
+
+			function egale() {
+				ecran.value = eval(ecran.value);
+			}
+		</script>
+	</body>
+</html>

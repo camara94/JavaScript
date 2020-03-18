@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exercice 6 TP2</title>
+	<style type="text/css">
+		form{
+			width: 400px;
+			margin:40px 80px;
+			border-left-style: solid;
+			border-left-width: 2px;
+
+			border-right-style: solid;
+			border-right-width: 2px;
+			
+			padding-left: 10px;
+		}
+		input{
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+<body>
+
+<form name="form">
+	<h5>Question n°1</h5>
+	<p>En JavaScript, on peut declarer une variable d'une manière :</p>
+	<input type="checkbox" name="exp" id="ex"><label for="ex">Explicite</label><br>
+	<input type="checkbox" name="Int" id="Int"><label for="Int">Interne</label><br>
+	<input type="checkbox" name="Imp" value="Implicite" id="imp"><label for="imp">Implicite</label><br>
+	<input type="checkbox" name="Ext" id="ext"><label for="ext">Externe</label><br>
+	<input type="button" onclick="verifier()" value="verifier" name="btn">
+</form>
+
+
+<script type="text/javascript">
+	function verifier() {
+		if(document.form.exp.checked==true && document.form.Imp.checked==true && document.form.Int.checked==false && document.form.Ext.checked==false )
+		{
+			alert("Votre réponse est correcte, bonne continuation ....");
+		}
+		else
+		{
+			alert("Votre réponse est incorrecte, veuillez vérifier");
+		}
+		
+		
+	}
+</script>
+</body>
+</html>
